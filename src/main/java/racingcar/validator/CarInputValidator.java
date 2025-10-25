@@ -1,5 +1,8 @@
 package racingcar.validator;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class CarInputValidator implements Validator<String> {
 
     @Override
@@ -12,10 +15,17 @@ public class CarInputValidator implements Validator<String> {
             throw new IllegalArgumentException("차량은 2대 이상이어야 합니다.");
         }
 
-        // 2. 입력된 차량명 중 1~5글자를 벗어나면 예외
+        Set<String> uniqueNames = new HashSet<>();
+
         for (String car : cars) {
             car = car.trim();
 
+            // 2. 중복된 차량명 있으면 예외
+            if (!uniqueNames.add(car)) {
+                throw new IllegalArgumentException("차량명은 중복될 수 없습니다.");
+            }
+
+            // 3. 글자 수가 0글자거나 5글자 초과 시 예외
             if (car.isEmpty() || car.length() > 5) {
                 throw new IllegalArgumentException("차량명은 최소 1글자 최대 5글자여야 합니다.");
             }
