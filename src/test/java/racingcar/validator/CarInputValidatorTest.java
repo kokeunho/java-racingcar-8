@@ -57,4 +57,16 @@ class CarInputValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("차량명은 최소 1글자 최대 5글자여야 합니다.");
     }
+
+    @Test
+    void 중복_검사() {
+
+        // when
+        String input = "car1,car1,car3";
+
+        // then
+        assertThatThrownBy(() -> carInputValidator.validate(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("차량명은 중복될 수 없습니다.");
+    }
 }
