@@ -18,7 +18,7 @@ public class Game {
     private List<Car> createCarList(String carNames) {
         List<Car> carList = new ArrayList<>();
 
-        for (String name : carNames.split(",")) {
+        for (String name : carNames.trim().split(",")) {
             carList.add(new Car(name.trim()));
         }
 
