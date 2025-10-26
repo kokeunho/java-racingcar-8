@@ -27,7 +27,7 @@ public class Game {
 
     private void playRound() {
         for (Car car : carList) {
-            car.moveCar();
+            car.move();
         }
     }
 
