@@ -8,7 +8,7 @@ public class Car {
     private int position;
     private static final int RANDOM_NUM_MIN = 0;
     private static final int RANDOM_NUM_MAX = 9;
-    private static final int MOVE_THRESHOLD = 3;
+    private static final int MOVE_THRESHOLD = 4;
 
     public Car(String name) {
         this.name = name;
