@@ -6,24 +6,18 @@ public class Car {
 
     private final String name;
     private int position;
+    private static final int RANDOM_NUM_MIN = 0;
+    private static final int RANDOM_NUM_MAX = 9;
+    private static final int MOVE_THRESHOLD = 3;
 
     public Car(String name) {
         this.name = name;
         this.position = 0;
     }
 
-    // 차량 전진 테스트를 위한 메서드
-    public void moveCarTest(int randomValue) {
-
-        if (randomValue >= 4) {
-            this.position++;
-        }
-    }
-
-    public void moveCar() {
-
+    public void move() {
         // 랜덤값이 0-9 중 4 이상인 값일 경우 전진
-        if (Randoms.pickNumberInRange(0, 9) >= 4) {
+        if (Randoms.pickNumberInRange(RANDOM_NUM_MIN, RANDOM_NUM_MAX) >= MOVE_THRESHOLD) {
             this.position++;
         }
     }
